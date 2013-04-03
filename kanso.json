@@ -1,0 +1,25 @@
+{
+    "name": "burma-photo",
+    "version": "0.0.1",
+    "description": "Photo Contest for Friends of the Children of Myanmar",
+    "load": "lib/app",
+    "modules": "lib",
+    "attachments": ["index.html"],
+
+    "dust": {
+        "templates": "templates"}
+    ,
+    "duality": {
+        "base_template": "base.html"}
+    ,
+    "dependencies": {
+        "modules": null,
+        "properties": null,
+        "attachments": null,
+        "settings": null,
+        "duality": null,
+        "dust": null,
+        "duality-dust": null,
+        "couchtypes": null,
+        "async": null}}
+
