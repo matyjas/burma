@@ -1,0 +1,149 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+font-size:12px;
+  font-family:Helvetica, Arial, sans-serif;
+  border:0;
+}
+
+
+#container{
+width:100%;
+padding:0px;
+}
+
+#image{
+padding:0px;
+align:right;
+float:right;
+z-index:1;
+}
+
+#navigation{
+width:990px;
+font-family:Helvetica, Arial, sans-serif;
+padding:5px;
+z-index:2;
+background-image:url(images/FriendsCM-bgImage.jpg);
+}
+
+#navigation2{
+width:990px;
+font-family:Helvetica, Arial, sans-serif;
+padding:5px;
+z-index:2;
+background-image:url(images/FriendsCM-bgImage2.jpg);
+}
+
+#galleryImage{
+float:left;
+}
+
+#mainImage{
+width:1000px;
+}
+
+
+#latestColumn{
+color:#666666;
+width:125px;
+font-size:11px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:100;
+padding-left:2px;
+padding-right:15px;
+padding-top:10px;
+z-index:3;
+float:left;
+}
+
+#galleryColumn{
+color:#666666;
+width:183px;
+font-size:11px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:100;
+padding-left:2px;
+padding-right:15px;
+padding-top:10px;
+z-index:2;
+float:left;
+}
+
+#galleryColumn2{
+color:#666666;
+width:150px;
+font-size:11px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:100;
+padding-left:15px;
+padding-right:15px;
+padding-top:0px;
+z-index:2;
+float:left;
+}
+
+#mainColumn{
+color:#666666;
+width:500px;
+font-size:12px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:100;
+padding-left:15px;
+padding-right:15px;
+padding-top:10px;
+float:left;
+z-index:2;
+
+}
+
+#linkColumn{
+color:#666666;
+width:240px;
+font-size:11px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:100;
+padding-left:15px;
+padding-top:10px;
+z-index:1;
+float:left;
+}
+
+.whitemenutext{ 
+  font-size:14px;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#FFFFFF;
+  font-weight:lighter;
+  text-decoration:none;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-left:8px;
+  padding-right:14px;
+ }
+ 
+ .linkText{ 
+  font-size:12px;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#FF0000;
+  font-weight:lighter;
+  text-decoration:underline;
+ }
+
+ .followText{ 
+  font-size:10px;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#353535;
+  font-weight:lighter;
+  text-decoration:none;
+ }
+
+ .columnTextTitle{ 
+  font-size:12px;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#232323;
+  font-weight:550px;
+  text-decoration:none;
+ }
+
+

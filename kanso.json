@@ -4,8 +4,7 @@
     "description": "Photo Contest for Friends of the Children of Myanmar",
     "load": "lib/app",
     "modules": "lib",
-    "attachments": ["index.html"],
-
+    "attachments": ["static"],
     "dust": {
         "templates": "templates"}
     ,
