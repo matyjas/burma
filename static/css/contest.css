@@ -1,0 +1,8 @@
+
+@media (min-width: 1000px) { 
+    header {
+        width: 1000px;
+        height: 67px;
+        background: url("/burma/_design/burma-photo/_rewrite/static/images/FriendsCM-header.jpg") no-repeat fixed;
+    }
+}
