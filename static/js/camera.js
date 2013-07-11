@@ -1,16 +1,21 @@
 (function () {
 
     var takePicture = document.querySelector("#take-picture"),
-        showPicture = document.querySelector("#show-picture");
+        showPicture = document.querySelector("#show-picture"),
+        deliverPicture = document.querySelector("#deliver-picture"),
+        name = document.querySelector("#name"),
+        email = document.querySelector("#email");
 
-    if (takePicture && showPicture) {
+    if (takePicture && showPicture && deliverPicture && name && email) {
         // Set events
         takePicture.onchange = function (event) {
             // Get a reference to the taken picture or chosen file
             var files = event.target.files,
                 file;
+
             if (files && files.length > 0) {
                 file = files[0];
+
                 try {
                     // Get window.URL object
                     var URL = window.URL || window.webkitURL;
@@ -25,6 +30,7 @@
                     URL.revokeObjectURL(imgURL);
                 }
                 catch (e) {
+
                     try {
                         // Fallback if createObjectURL is not supported
                         var fileReader = new FileReader();
@@ -41,6 +47,32 @@
                         }
                     }
                 }
+
+		// if file exists, then lets set up delivery
+
+		deliverPicture.onclick = function (buttonEvent) {
+
+		    if (name.value && email.value) {
+
+			var metaPhoto = JSON.stringify({"name": name.value, "email": email.value});
+			var xhr = new XMLHttpRequest();
+			
+			xhr.addEventListener('load', function(event) {
+			    alert(event);
+			});
+		
+			xhr.addEventListener('error', function(event) {
+			    alert('error');
+			});
+
+			xhr.open('POST', '/burma');
+
+			xhr.setRequestHeader('Content-Type', 'application/json');
+			xhr.setRequestHeader('Content-Length', metaPhoto.length);
+
+			xhr.send(metaPhoto);
+		    }
+		};		
             }
         };
     }
