@@ -61,13 +61,14 @@
 
 			    var postResponse, imagePutRequest;
 
-			    if (xhr.readystate === 4 && xhr.status === 201) {
+			    if (xhr.readyState === 4 && xhr.status === 201) {
+
 				postResponse = JSON.parse(xhr.responseText);
 				
 				imagePutRequest = new XMLHttpRequest();
-				imagePutRequest.open('PUT', '/burma/' + postResponse.id + 'attachment?rev=' + postResponse.rev);
+				imagePutRequest.open('PUT', '/burma/' + postResponse.id + '/attachment?rev=' + postResponse.rev);
 				imagePutRequest.setRequestHeader('Content-Type', file.type);
-				imagePutRequest.setRequestHeader('Content-Length', file.size);
+
 				imagePutRequest.send(file);
 			    }
 			};
@@ -79,7 +80,6 @@
 			xhr.open('POST', '/burma');
 
 			xhr.setRequestHeader('Content-Type', 'application/json');
-			xhr.setRequestHeader('Content-Length', metaPhoto.length);
 
 			xhr.send(metaPhoto);
 		    }
