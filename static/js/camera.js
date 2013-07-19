@@ -57,9 +57,20 @@
 			var metaPhoto = JSON.stringify({"name": name.value, "email": email.value});
 			var xhr = new XMLHttpRequest();
 			
-			xhr.addEventListener('load', function(event) {
-			    alert(event);
-			});
+			xhr.onreadystatechange = function () {
+
+			    var postResponse, imagePutRequest;
+
+			    if (xhr.readystate === 4 && xhr.status === 201) {
+				postResponse = JSON.parse(xhr.responseText);
+				
+				imagePutRequest = new XMLHttpRequest();
+				imagePutRequest.open('PUT', '/burma/' + postResponse.id + 'attachment?rev=' + postResponse.rev);
+				imagePutRequest.setRequestHeader('Content-Type', file.type);
+				imagePutRequest.setRequestHeader('Content-Length', file.size);
+				imagePutRequest.send(file);
+			    }
+			};
 		
 			xhr.addEventListener('error', function(event) {
 			    alert('error');
