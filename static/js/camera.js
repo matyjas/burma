@@ -59,14 +59,16 @@
 			
 			xhr.onreadystatechange = function () {
 
-			    var postResponse, imagePutRequest;
+			    var postResponse, imagePutRequest, rev;
 
-			    if (xhr.readyState === 4 && xhr.status === 201) {
+			    if (xhr.readyState === 4 && (xhr.status === 201 || xhr.status === 200)) {
 
 				postResponse = JSON.parse(xhr.responseText);
-				
+				// due to update function, rev is actually in a header called "X-Couch-Update-NewRev"
+				rev = xhr.getResponseHeader("X-Couch-Update-NewRev");
+				alert(rev);
 				imagePutRequest = new XMLHttpRequest();
-				imagePutRequest.open('PUT', '/burma/' + postResponse.id + '/attachment?rev=' + postResponse.rev);
+				imagePutRequest.open('PUT', '/burma/' + postResponse.id + '/attachment?rev=' + rev);
 				imagePutRequest.setRequestHeader('Content-Type', file.type);
 
 				imagePutRequest.send(file);
@@ -77,7 +79,7 @@
 			    alert('error');
 			});
 
-			xhr.open('POST', '/burma');
+			xhr.open('POST', '/burma/_design/burma-photo/_update/add_timestamp');
 
 			xhr.setRequestHeader('Content-Type', 'application/json');
 
