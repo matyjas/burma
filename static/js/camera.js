@@ -68,15 +68,22 @@
 				imagePutRequest = new XMLHttpRequest();
 				imagePutRequest.onreadystatechange = function () {
 
-				    var completeSubmission = new XMLHttpRequest();
-
 				    if (imagePutRequest.readyState === 4) {
+
+					var completeSubmission = new XMLHttpRequest();
+					completeSubmission.onreadystatechange = function () {
+					    
+					    if (completeSubmission.readyState === 4 ) {
+						
+						document.open();
+						document.write(completeSubmission.responseText);
+						document.close();
+					    }
+					}
 
 					completeSubmission.open('PUT', '/burma/_design/burma-photo/_update/complete_photo_file_sub/'+ postResponse.id);
 					completeSubmission.setRequestHeader('Content-Type', 'application/json');
 					completeSubmission.send("");
-
-					
 				    }
 				};
 
