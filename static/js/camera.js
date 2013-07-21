@@ -55,8 +55,8 @@
 		    if (name.value && email.value) {
 
 			var metaPhoto = JSON.stringify({"name": name.value, "email": email.value});
-			var xhr = new XMLHttpRequest();
-			
+
+			var xhr = new XMLHttpRequest();			
 			xhr.onreadystatechange = function () {
 
 			    var postResponse, imagePutRequest;
@@ -66,6 +66,20 @@
 				postResponse = JSON.parse(xhr.responseText);
 
 				imagePutRequest = new XMLHttpRequest();
+				imagePutRequest.onreadystatechange = function () {
+
+				    var completeSubmission = new XMLHttpRequest();
+
+				    if (imagePutRequest.readyState === 4) {
+
+					completeSubmission.open('PUT', '/burma/_design/burma-photo/_update/complete_photo_file_sub/'+ postResponse.id);
+					completeSubmission.setRequestHeader('Content-Type', 'application/json');
+					completeSubmission.send("");
+
+					
+				    }
+				};
+
 				imagePutRequest.open('PUT', '/burma/' + postResponse.id + '/attachment?rev=' + postResponse.rev);
 				imagePutRequest.setRequestHeader('Content-Type', file.type);
 
